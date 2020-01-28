@@ -1,0 +1,8 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+  xmlns:ui="nativescript-medallia">
+  <StackLayout class="p-20">
+    <TextField hint="Enter survey id here" id="inputSurveyId">
+    </TextField>
+    <Button text="Show survey" id="buttonShowSurvey"></Button>
+  </StackLayout>
+</Page>

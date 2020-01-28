@@ -2,7 +2,7 @@
 
 Nativescript medallia plugin is used for integration of Medallia ( see https://www.medallia.com/ ) into Nativescript based Android and IOS applications.
 
-## (Optional) Prerequisites / Requirements
+## Prerequisites / Requirements
 
 The plugin is currently based on NativeScript 5.3.1 and XCode 11
 

@@ -11,11 +11,10 @@ export class Medallia extends Common {
     const self = this;
     MedalliaDigital.init(androidApp.nativeApp, apiKey, new MDResultCallback({
         onError(error: com.medallia.digital.mobilesdk.MDExternalError): void {
-          console.log("Brane INIT ERROR");
+          console.error("An error occured when trying to initialise medallia: " + error.getMessage());
           self.onApiInitError(error.getMessage());
         },
         onSuccess(): void {
-          console.log("Brane INIT SUCESS");
           self.onApiInitSuccess();
         }
       }
@@ -39,5 +38,12 @@ export class Medallia extends Common {
         }
       }));
     });
+  }
+
+  public static setCustomParameter(name: string, value: any): void {
+    if (false === this.medalliaState$.getValue()) {
+      throw new Error("Medallia was not properly initialized!");
+    }
+    MedalliaDigital.setCustomParameter(name, value);
   }
 }

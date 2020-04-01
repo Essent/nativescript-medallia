@@ -31,4 +31,11 @@ export class Medallia extends Common {
       );
     });
   }
+
+  public static setCustomParameter(name: string, value: any): void {
+      if (false === this.medalliaState$.getValue()) {
+        throw new Error("Medallia was not properly initialized!");
+      }
+      MedalliaDigital.setCustomParameterWithNameValue(name, value);
+  }
 }

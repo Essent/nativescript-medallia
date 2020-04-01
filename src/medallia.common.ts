@@ -1,5 +1,5 @@
 import { Observable } from 'tns-core-modules/data/observable';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable as ObservableRxjs } from 'rxjs';
 
 export class Common extends Observable {
 

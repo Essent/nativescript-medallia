@@ -1,6 +1,6 @@
 {
     "name": "nativescript-medallia",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Your awesome NativeScript plugin.",
     "main": "medallia",
     "typings": "index.d.ts",

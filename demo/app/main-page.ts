@@ -16,7 +16,7 @@ export function pageLoaded(args: observable.EventData) {
         buttonShowSurvey.addEventListener("tap", function() {
             Medallia.getMedalliaState().subscribe(
                 (success: boolean) => {
-                    if (true === success) {
+                    if (success) {
                         showForm(page);
                     }
                 },
@@ -29,7 +29,7 @@ export function pageLoaded(args: observable.EventData) {
         buttonSetParameter.addEventListener("tap", function() {
             Medallia.getMedalliaState().subscribe(
                 (success: boolean) => {
-                    if (true === success) {
+                    if (success) {
                         setCustomParameter(page);
                     }
                 },

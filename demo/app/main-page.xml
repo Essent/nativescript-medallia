@@ -1,8 +1,23 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-medallia">
   <StackLayout class="p-20">
+    <Label text=" "></Label>
+    <Label text=" "></Label>
+    <Label text="Show medallia form by id"></Label>
+    <Label text=" "></Label>
     <TextField hint="Enter survey id here" id="inputSurveyId">
     </TextField>
     <Button text="Show survey" id="buttonShowSurvey"></Button>
+    <Label text=" "></Label>
+    <Label text=" "></Label>
+    <Label text="Set medallia custom parameter"></Label>
+    <Label text=" "></Label>
+    <GridLayout rows="auto" columns="1*, 1*">
+      <TextField hint="Parameter name" id="inputParameterName" row="0" col="0">
+      </TextField>
+      <TextField hint="Parameter value" id="inputParameterValue" row="0" col="1">
+      </TextField>
+    </GridLayout>
+    <Button text="Set medallia parameter" id="buttonSetParameter"></Button>
   </StackLayout>
 </Page>

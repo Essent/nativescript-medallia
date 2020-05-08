@@ -19,6 +19,7 @@ declare module com {
           public static init(application: com.android.Application, apiToken: string, callback: com.medallia.digital.mobilesdk.MDResultCallback): void;
           public static showForm(formId: string, callback: com.medallia.digital.mobilesdk.MDResultCallback) : void;
           public static revertStopSDK(): void;
+          public static setCustomParameter(name: string, value: any): void;
         }
       }
     }

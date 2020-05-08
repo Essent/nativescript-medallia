@@ -1,7 +1,7 @@
 {
     "name": "nativescript-medallia",
-    "version": "1.0.0",
-    "description": "Your awesome NativeScript plugin.",
+    "version": "1.0.1",
+    "description": "Nativescript plugin for medallia integration.",
     "main": "medallia",
     "typings": "index.d.ts",
     "nativescript": {
@@ -31,17 +31,18 @@
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS"
+        "iOS",
+        "Medallia"
     ],
     "author": {
-        "name": "Your Name",
-        "email": "youremail@yourdomain.com"
+        "name": "Essent",
+        "email": "frontend-licenties@essent.nl"
     },
     "bugs": {
-        "url": "https://github.com/b-ivanovic/nativescript-medallia/issues"
+        "url": "https://github.com/Essent/nativescript-medallia/issues"
     },
-    "license": "Apache-2.0",
-    "homepage": "https://github.com/b-ivanovic/nativescript-medallia",
+    "license": "MIT",
+    "homepage": "https://github.com/Essent/nativescript-medallia",
     "readmeFilename": "README.md",
     "devDependencies": {
         "tns-core-modules": "^5.1.0",

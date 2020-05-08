@@ -16,7 +16,7 @@ export class Medallia extends Common {
 
   public static showForm(formId: string): Observable<boolean> {
     return Observable.create(observer => {
-      if (false === this.medalliaState$.getValue()) {
+      if (false === this.getMedalliaState().getValue()) {
         observer.next(false);
       }
       MedalliaDigital.showFormSuccessFailure(formId,
@@ -30,5 +30,12 @@ export class Medallia extends Common {
         }
       );
     });
+  }
+
+  public static setCustomParameter(name: string, value: any): void {
+      if (false === this.getMedalliaState().getValue()) {
+        throw new Error("Medallia was not properly initialized!");
+      }
+      MedalliaDigital.setCustomParameterWithNameValue(name, value);
   }
 }

@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class Common extends Observable {
 
-  public static medalliaState$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private static medalliaState$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {
     super();
@@ -17,5 +17,9 @@ export class Common extends Observable {
   protected static onApiInitSuccess(): void {
     console.info('Medallia API initialized successfuly!');
     this.medalliaState$.next(true);
+  }
+
+  public static getMedalliaState(): BehaviorSubject<boolean> {
+    return this.medalliaState$;
   }
 }

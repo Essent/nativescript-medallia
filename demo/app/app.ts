@@ -1,6 +1,6 @@
 ﻿
 import { Application, isIOS } from "@nativescript/core";
-import { Medallia } from 'nativescript-medallia';
+import { Medallia } from '@essent/nativescript-medallia';
 import {MEDALLIA_API_KEY_ANDROID, MEDALLIA_API_KEY_IOS} from './global-config';
 
 declare var process: any;

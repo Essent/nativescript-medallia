@@ -1,5 +1,5 @@
 import { EventData, Page, TextField, AlertOptions, alert } from '@nativescript/core';
-import { Medallia } from 'nativescript-medallia';
+import { Medallia } from '@essent/nativescript-medallia';
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 let firstTimeLoad: boolean = true;

@@ -1,5 +1,5 @@
 import { Common } from './medallia.common';
-import { android as androidApp } from 'tns-core-modules/application';
+import { android as androidApp } from '@nativescript/core/application';
 import { Observable} from 'rxjs';
 
 import MedalliaDigital = com.medallia.digital.mobilesdk.MedalliaDigital;

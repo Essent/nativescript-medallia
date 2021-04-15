@@ -1,6 +1,5 @@
 ﻿
-import * as app from "tns-core-modules/application";
-import { isAndroid, isIOS } from "tns-core-modules/platform";
+import { Application, isIOS } from "@nativescript/core";
 import { Medallia } from 'nativescript-medallia';
 import {MEDALLIA_API_KEY_ANDROID, MEDALLIA_API_KEY_IOS} from './global-config';
 
@@ -14,14 +13,10 @@ function getEnvironmentVar(key: string): string {
   }
 }
 
+Application.run({ moduleName: "main-page" });
+
 if (isIOS) {
-  Medallia.init(MEDALLIA_API_KEY_IOS);
+    Medallia.init(MEDALLIA_API_KEY_IOS);
+} else {
+    Medallia.init(MEDALLIA_API_KEY_ANDROID);
 }
-
-app.run({ moduleName: "main-page" });
-
-if (isAndroid) {
-  Medallia.init(MEDALLIA_API_KEY_ANDROID);
-}
-
-

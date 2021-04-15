@@ -1,14 +1,11 @@
-import * as observable from 'tns-core-modules/data/observable';
-import * as pages from 'tns-core-modules/ui/page';
+import { EventData, Page, TextField, AlertOptions, alert } from '@nativescript/core';
 import { Medallia } from 'nativescript-medallia';
-import { TextField } from "tns-core-modules/ui/text-field";
-import { alert, AlertOptions } from "tns-core-modules/ui/dialogs";
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 let firstTimeLoad: boolean = true;
-export function pageLoaded(args: observable.EventData) {
+export function pageLoaded(args: EventData) {
     // Get the event sender
-    const page = <pages.Page>args.object;
+    const page = <Page>args.object;
     const buttonShowSurvey = page.getViewById('buttonShowSurvey');
     const buttonSetParameter = page.getViewById('buttonSetParameter');
     if (firstTimeLoad) {
@@ -42,7 +39,7 @@ export function pageLoaded(args: observable.EventData) {
     }
 }
 
-export function showForm(page: pages.Page) {
+export function showForm(page: Page) {
     const inputSurveyId = <TextField> page.getViewById("inputSurveyId");
     Medallia.showForm(inputSurveyId.text).subscribe(
         (success: boolean) => {
@@ -54,7 +51,7 @@ export function showForm(page: pages.Page) {
     );
 }
 
-export function setCustomParameter(page: pages.Page) {
+export function setCustomParameter(page: Page) {
     const inputParameterName = <TextField> page.getViewById("inputParameterName");
     const inputParameterValue = <TextField> page.getViewById("inputParameterValue");
     Medallia.setCustomParameter(inputParameterName.text, inputParameterValue.text);

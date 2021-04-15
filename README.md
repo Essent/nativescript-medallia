@@ -9,7 +9,7 @@ The plugin is currently based on NativeScript 7.2.0 and XCode 12
 ## Installation
 
 ```
-tns plugin add nativescript-medallia
+tns plugin add @essent/nativescript-medallia
 ```
 
 ## Usage 
@@ -17,7 +17,7 @@ tns plugin add nativescript-medallia
 
 Initializing Medallia (should be done in app.ts):
 ```
-    import { Medallia } from 'nativescript-medallia';
+    import { Medallia } from '@essent/nativescript-medallia';
     ...
     if (isIOS) {
       Medallia.init("...Put your IOS Medallia api key here...");

@@ -1,5 +1,5 @@
 {
-		"name": "nativescript-medallia",
+		"name": "@essent/nativescript-medallia",
 		"version": "3.0.0",
 		"description": "Nativescript plugin for medallia integration.",
 		"main": "medallia",
@@ -18,7 +18,7 @@
 				"demo.ios": "npm run build && cd ../demo && ns run ios",
 				"demo.android": "npm run build && cd ../demo && ns run android",
 				"demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
-				"plugin.prepare": "npm run build && cd ../demo && ns plugin remove nativescript-medallia && ns plugin add ../src",
+				"plugin.prepare": "npm run build && cd ../demo && ns plugin remove @essent/nativescript-medallia && ns plugin add ../src",
 				"clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm run setup",
 				"setup": "npm i && ts-patch install && tsc"
 		},

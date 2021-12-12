@@ -9,7 +9,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        "lib": ["es6", "dom"],
+        "lib": ["es2017", "dom"],
         "sourceMap": true,
         "pretty": true,
         "allowUnreachableCode": false,
@@ -22,7 +22,7 @@
         "noFallthroughCasesInSwitch": true,
         "plugins": [
             {
-              "transform": "@nativescript/webpack/transformers/ns-transform-native-classes",
+              "transform": "@nativescript/webpack/dist/transformers/NativeClass",
               "type": "raw"
             }
         ]

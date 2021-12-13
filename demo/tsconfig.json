@@ -8,13 +8,26 @@
     "noEmitHelpers": true,
     "noEmitOnError": true,
     "skipLibCheck": true,
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "baseUrl": ".",
     "paths": {
-      "~/*": ["app/*"],
-      "@essent/nativescript-medallia": ["../src/index.d.ts"],
-      "@essent/nativescript-medallia/*": ["../src/*"]
-    }
+      "~/*": [
+        "app/*"
+      ],
+      "@essent/nativescript-medallia": [
+        "../src/index.d.ts"
+      ],
+      "@essent/nativescript-medallia/*": [
+        "../src/*"
+      ]
+    },
+    "removeComments": false
   },
-  "exclude": ["node_modules", "platforms"]
+  "exclude": [
+    "node_modules",
+    "platforms"
+  ]
 }

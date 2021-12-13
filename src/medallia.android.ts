@@ -22,7 +22,7 @@ export class Medallia extends Common {
   }
 
   public static showForm(formId: string): Observable<boolean> {
-    return Observable.create(observer => {
+    return new Observable(observer => {
       if (!this.getMedalliaState().getValue()) {
         observer.next(false);
         observer.complete();

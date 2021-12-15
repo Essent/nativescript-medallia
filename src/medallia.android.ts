@@ -1,5 +1,5 @@
 import { Common } from './medallia.common';
-import { android as androidApp } from '@nativescript/core/application';
+import { Application } from '@nativescript/core';
 import { Observable} from 'rxjs';
 
 import MedalliaDigital = com.medallia.digital.mobilesdk.MedalliaDigital;
@@ -9,7 +9,7 @@ export class Medallia extends Common {
 
   public static init(apiKey: string): void {
     const self = this;
-    MedalliaDigital.init(androidApp.nativeApp, apiKey, new MDResultCallback({
+    MedalliaDigital.init(Application.android.nativeApp, apiKey, new MDResultCallback({
         onError(error: com.medallia.digital.mobilesdk.MDExternalError): void {
           console.error("An error occured when trying to initialise medallia: " + error.getMessage());
           self.onApiInitError(error.getMessage());
@@ -22,7 +22,7 @@ export class Medallia extends Common {
   }
 
   public static showForm(formId: string): Observable<boolean> {
-    return Observable.create(observer => {
+    return new Observable(observer => {
       if (!this.getMedalliaState().getValue()) {
         observer.next(false);
         observer.complete();

@@ -1,35 +1,33 @@
 {
-	"compilerOptions": {
-		"module": "esnext",
-		"target": "es2017",
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2017",
     "moduleResolution": "node",
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		"noEmitHelpers": true,
-		"noEmitOnError": true,
-		"skipLibCheck": true,
-		"lib": [
-			"es6",
-			"dom",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
       "es2017"
-		],
-		"baseUrl": ".",
-		"paths": {
-			"~/*": [
-				"app/*"
-			],
-			"*": [
-				"./node_modules/*"
-			]
-		}
-	},
-	"exclude": [
-		"node_modules",
-		"platforms",
-		"../src/node_modules"
-	],
-	"include": [
-		"../src",
-		"**/*"
-	]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "app/*"
+      ],
+      "@essent/nativescript-medallia": [
+        "../src/index.d.ts"
+      ],
+      "@essent/nativescript-medallia/*": [
+        "../src/*"
+      ]
+    },
+    "removeComments": false
+  },
+  "exclude": [
+    "node_modules",
+    "platforms"
+  ]
 }

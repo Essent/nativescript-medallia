@@ -1,4 +1,56 @@
 
+declare const enum MDAppearanceMode {
+
+	Light = 0,
+
+	Dark = 1,
+
+	Unknown = 2
+}
+
+interface MDCustomInterceptDelegate {
+
+	targetEvaluationDidSuccessWithCustomInterceptDelegateData?(customInterceptDelegateData: MDCustomInterceptDelegateData): void;
+}
+declare var MDCustomInterceptDelegate: {
+
+	prototype: MDCustomInterceptDelegate;
+};
+
+declare class MDCustomInterceptDelegateData extends NSObject {
+
+	static alloc(): MDCustomInterceptDelegateData; // inherited from NSObject
+
+	static new(): MDCustomInterceptDelegateData; // inherited from NSObject
+
+	engagementId: string;
+
+	engagementType: MDEngagementType;
+
+	formPreloadTimestamp: number;
+
+	payload: MDCustomInterceptPayload;
+
+	targetingEvaluationTimestamp: number;
+}
+
+declare class MDCustomInterceptPayload extends NSObject {
+
+	static alloc(): MDCustomInterceptPayload; // inherited from NSObject
+
+	static new(): MDCustomInterceptPayload; // inherited from NSObject
+
+	declineText: string;
+
+	deferText: string;
+
+	provideFeedbackText: string;
+
+	subtitleText: string;
+
+	titleText: string;
+}
+
 declare const enum MDEngagementType {
 
 	Form = 0,
@@ -6,7 +58,6 @@ declare const enum MDEngagementType {
 	AppRating = 1
 }
 
-@NativeClass()
 declare class MDExternalError extends NSObject {
 
 	static alloc(): MDExternalError; // inherited from NSObject
@@ -20,44 +71,71 @@ declare class MDExternalError extends NSObject {
 
 interface MDFeedbackDelegate {
 
-	feedbackDidSubmitWithTimestampFeedbackUUIDPayload?(timestamp: number, feedbackUUID: string, payload: NSDictionary<string, any>): void;
+	feedbackDidSubmitWithFeedbackDelegateData?(feedbackDelegateData: MDFeedbackDelegateData): void;
 }
 declare var MDFeedbackDelegate: {
 
 	prototype: MDFeedbackDelegate;
 };
 
-interface MDFeedbackV2Delegate {
+declare class MDFeedbackDelegateData extends NSObject {
 
-	feedbackDidSubmitWithTimestampFeedbackClientCorrelationIdPayload?(timestamp: number, feedbackClientCorrelationId: string, payload: NSDictionary<string, any>): void;
+	static alloc(): MDFeedbackDelegateData; // inherited from NSObject
+
+	static new(): MDFeedbackDelegateData; // inherited from NSObject
+
+	feedbackClientCorrelationId: string;
+
+	payload: NSDictionary<string, any>;
+
+	timestamp: number;
 }
-declare var MDFeedbackV2Delegate: {
-
-	prototype: MDFeedbackV2Delegate;
-};
 
 interface MDFormDelegate {
 
-	formDidBlockExternalUrlWithTimestampFormIdFormTriggerTypeBlockedUrl?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType, blockedUrl: string): void;
+	formDidBlockExternalUrlWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidCloseWithTimestampFormIdFormTriggerType?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType): void;
+	formDidCloseWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidDismissWithTimestampFormIdFormTriggerType?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType): void;
+	formDidDismissWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidDisplayV2WithTimestampFormIdFormTriggerTypeFormLocaleSetFormLocaleDisplay?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType, formLocaleSet: string, formLocaleDisplay: string): void;
+	formDidDisplayWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidDisplayWithTimestampFormIdFormTriggerType?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType): void;
+	formDidLinkSelectWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidLinkSelectWithTimestampFormIdFormTriggerTypeUrlIsBlocked?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType, url: string, isBlocked: boolean): void;
+	formDidSubmitWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 
-	formDidSubmitWithTimestampFormIdFormTriggerType?(timestamp: number, formId: string, formTriggerType: MDFormTriggerType): void;
-
-	formDidThankYouPromptWithTimestampEngagementIdFormTriggerType?(timestamp: number, engagementId: string, formTriggerType: MDFormTriggerType): void;
+	formDidThankYouPromptWithFormDelegateData?(formDelegateData: MDFormDelegateData): void;
 }
 declare var MDFormDelegate: {
 
 	prototype: MDFormDelegate;
 };
+
+declare class MDFormDelegateData extends NSObject {
+
+	static alloc(): MDFormDelegateData; // inherited from NSObject
+
+	static new(): MDFormDelegateData; // inherited from NSObject
+
+	engagementId: string;
+
+	formHeaderAppearanceDisplay: MDAppearanceMode;
+
+	formHeaderAppearanceSet: MDAppearanceMode;
+
+	formLocaleDisplay: string;
+
+	formLocaleSet: string;
+
+	formTriggerType: MDFormTriggerType;
+
+	isBlocked: boolean;
+
+	timestamp: number;
+
+	url: string;
+}
 
 declare const enum MDFormTriggerType {
 
@@ -66,54 +144,52 @@ declare const enum MDFormTriggerType {
 	Invite = 1
 }
 
+declare const enum MDInterceptActionType {
+
+	Accepted = 0,
+
+	Declined = 1,
+
+	Deferred = 2,
+
+	Skipped = 3
+}
+
 interface MDInterceptDelegate {
 
-	interceptDidAcceptWithTimestampInterceptIdEngagementType?(timestamp: number, interceptId: string, engagementType: MDEngagementType): void;
+	interceptDidAcceptWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
 
-	interceptDidDeclineWithTimestampInterceptIdEngagementType?(timestamp: number, interceptId: string, engagementType: MDEngagementType): void;
+	interceptDidCloseWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
 
-	interceptDidDeferWithTimestampInterceptIdEngagementType?(timestamp: number, interceptId: string, engagementType: MDEngagementType): void;
+	interceptDidDeclineWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
 
-	interceptDidDisplayWithTimestampInterceptIdEngagementType?(timestamp: number, interceptId: string, engagementType: MDEngagementType): void;
+	interceptDidDeferWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
 
-	interceptDidTriggerSKStoreReviewControllerWithTimestampInterceptId?(timestamp: number, interceptId: string): void;
+	interceptDidDisplayWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
+
+	interceptDidTriggerSKStoreReviewControllerWithInterceptDelegateData?(interceptDelegateData: MDInterceptDelegateData): void;
 }
 declare var MDInterceptDelegate: {
 
 	prototype: MDInterceptDelegate;
 };
 
-interface MDInterceptV3Delegate {
+declare class MDInterceptDelegateData extends NSObject {
 
-	interceptDidAcceptWithTimestampEngagementIdEngagementType?(timestamp: number, engagementId: string, engagementType: MDEngagementType): void;
+	static alloc(): MDInterceptDelegateData; // inherited from NSObject
 
-	interceptDidDeclineWithTimestampEngagementIdEngagementType?(timestamp: number, engagementId: string, engagementType: MDEngagementType): void;
+	static new(): MDInterceptDelegateData; // inherited from NSObject
 
-	interceptDidDeferWithTimestampEngagementIdEngagementType?(timestamp: number, engagementId: string, engagementType: MDEngagementType): void;
+	appearanceDisplay: MDAppearanceMode;
 
-	interceptDidDisplayWithTimestampEngagementIdEngagementType?(timestamp: number, engagementId: string, engagementType: MDEngagementType): void;
+	appearanceSet: MDAppearanceMode;
 
-	interceptDidTriggerSKStoreReviewControllerWithTimestampInterceptId?(timestamp: number, interceptId: string): void;
+	engagementId: string;
+
+	engagementType: MDEngagementType;
+
+	timestamp: number;
 }
-declare var MDInterceptV3Delegate: {
-
-	prototype: MDInterceptV3Delegate;
-};
-
-interface MDInvitationDelegate {
-
-	invitationDidAcceptWithTimestampFormId?(timestamp: number, formId: string): void;
-
-	invitationDidDeclineWithTimestampFormId?(timestamp: number, formId: string): void;
-
-	invitationDidDeferWithTimestampFormId?(timestamp: number, formId: string): void;
-
-	invitationDidDisplayWithTimestampFormId?(timestamp: number, formId: string): void;
-}
-declare var MDInvitationDelegate: {
-
-	prototype: MDInvitationDelegate;
-};
 
 declare const enum MDLogLevel {
 
@@ -139,10 +215,13 @@ declare const enum MDSDKFrameworkType {
 	Cordova = 2
 }
 
-@NativeClass()
 declare class MedalliaDigital extends NSObject {
 
 	static alloc(): MedalliaDigital; // inherited from NSObject
+
+	static closeEngagementWithSuccessFailure(success: () => void, failure: (p1: MDExternalError) => void): void;
+
+	static customInterceptTriggerWithEngagementIdActionTypeFailure(engagementId: string, actionType: MDInterceptActionType, failure: (p1: MDExternalError) => void): void;
 
 	static disableIntercept(): void;
 
@@ -156,21 +235,21 @@ declare class MedalliaDigital extends NSObject {
 
 	static sdkInitWithTokenSuccessFailure(token: string, success: () => void, failure: (p1: MDExternalError) => void): void;
 
+	static setCustomAppearance(appearanceMode: MDAppearanceMode): void;
+
+	static setCustomInterceptDelegate(customInterceptDelegate: MDCustomInterceptDelegate): void;
+
 	static setCustomParameterWithNameValue(name: string, value: any): void;
 
 	static setCustomParameters(parameters: NSDictionary<string, any>): void;
 
-	static setFeedbackDelegate(feedbackDelegate: MDFeedbackDelegate): void;
+	static setDebugForm(debug: boolean): void;
 
-	static setFeedbackV2Delegate(feedbackV2Delegate: MDFeedbackV2Delegate): void;
+	static setFeedbackDelegate(feedbackDelegate: MDFeedbackDelegate): void;
 
 	static setFormDelegate(formDelegate: MDFormDelegate): void;
 
 	static setInterceptDelegate(interceptDelegate: MDInterceptDelegate): void;
-
-	static setInterceptV3Delegate(interceptV3Delegate: MDInterceptV3Delegate): void;
-
-	static setInvitationDelegate(invitationDelegate: MDInvitationDelegate): void;
 
 	static setLogLevel(logLevel: MDLogLevel): void;
 

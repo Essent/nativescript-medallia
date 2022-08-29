@@ -1,6 +1,6 @@
 {
 		"name": "@essent/nativescript-medallia",
-		"version": "4.0.0",
+		"version": "4.1.0",
 		"description": "Nativescript plugin for medallia integration.",
 		"main": "medallia",
 		"typings": "index.d.ts",

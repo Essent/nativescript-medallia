@@ -1,5 +1,5 @@
 import { Common } from './medallia.common';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 export class Medallia extends Common {
 

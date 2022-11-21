@@ -1,6 +1,6 @@
 import { Common } from './medallia.common';
 import { Application } from '@nativescript/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 import MedalliaDigital = com.medallia.digital.mobilesdk.MedalliaDigital;
 import MDResultCallback = com.medallia.digital.mobilesdk.MDResultCallback;
